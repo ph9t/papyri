@@ -7,6 +7,16 @@ postmarksRouter.get('/', async (req, res) => {
   res.json(postmarks)
 })
 
+postmarksRouter.get('/:id', async (req, res) => {
+  const postmark = await Postmark.findById(req.params.id)
+
+  if (postmark) {
+    res.json(postmark)
+  } else {
+    res.status(404).end()
+  }
+})
+
 postmarksRouter.post('/', async (req, res) => {
   const body = req.body
 
