@@ -7,7 +7,7 @@ const postmarkSchema = new mongoose.Schema({
 
 postmarkSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    returnedObject = returnedObject._id.toString()
+    returnedObject.id = returnedObject._id.toString()
 
     delete returnedObject._id
     delete returnedObject.__v
