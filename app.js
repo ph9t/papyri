@@ -19,8 +19,8 @@ mongoose
     logger.error('Failed to connect to the MongoDB database: ', error.message)
   })
 
-app.use(middleware.requestLogger)
 app.use(express.json())
+app.use(middleware.requestLogger)
 
 app.use('/api/postmarks', postmarksRouter)
 
