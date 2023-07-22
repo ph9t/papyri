@@ -53,4 +53,9 @@ postmarksRouter.put('/:id', async (req, res) => {
   res.json(updatedPostmark)
 })
 
+postmarksRouter.delete('/:id', async (req, res) => {
+  await Postmark.findByIdAndDelete(req.params.id)
+  res.status(204).end()
+})
+
 module.exports = postmarksRouter
